@@ -14,3 +14,15 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face {
+    font-family: 'XILOSA';
+    font-weight: 200;
+    font-style: normal;
+    src: url('../assets/fonts/XILOSA.eot');
+    src: url('../assets/fonts/XILOSA.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/XILOSA.woff2') format('woff2'),
+    url('../assets/fonts/XILOSA.woff') format('woff'),
+    url('../assets/fonts/XILOSA.ttf') format('truetype'),
+    url('../assets/fonts/XILOSA.svg#Xilosa') format('svg');
+}
