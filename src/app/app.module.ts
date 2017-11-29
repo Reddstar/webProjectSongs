@@ -6,11 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {StreamingMedia} from '@ionic-native/streaming-media';
+import { OneplayerPage } from '../pages/oneplayer/oneplayer';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    OneplayerPage
   ],
   imports: [
     BrowserModule,
@@ -19,12 +22,14 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    OneplayerPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StreamingMedia
   ]
 })
 export class AppModule {}
