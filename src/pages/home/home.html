@@ -1,18 +1,12 @@
-<ion-content padding>
-    <ion-card class="main-home-header">
-      <img src="assets/imgs/bg.jpg">
-    </ion-card>
-      <ion-card class="mode-selector" (click)="goToOnePlayer()">
-        <img src="assets/imgs/icon_one_player.jpg">
-      </ion-card>
-      <ion-card class="mode-selector">
-          <img src="assets/imgs/icon_totheend.jpg">
-      </ion-card>
-      <ion-card class="mode-selector">
-          <img src="assets/imgs/icon_1v1.jpg">
-      </ion-card>
-      <ion-card class="mode-selector">
-          <img src="assets/imgs/icon_2v2.jpg">
-      </ion-card>
-  </ion-content>
+<ion-content class="centralized" padding>
+    <img src="assets/imgs/bg.jpg" class="main-home-header">
+    <div class="buttons-row">
+        <button ion-button color="light" class="step-button" round (click) = "goToOnePlayer()" ><p class = "xilosa-font">Um Jogador</p></button>
+        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">Até o Fim</p></button>
+    </div>
+    <div class="buttons-row">
+        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">1 contra 1</p></button>
+        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">2 contra 2</p></button>
+    </div>
+</ion-content>
   
