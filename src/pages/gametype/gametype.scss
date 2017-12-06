@@ -1,5 +1,4 @@
-page-home {
-    
+page-gametype {
     .mode-selector{
         img {
             width: 100%;
@@ -17,8 +16,14 @@ page-home {
         margin-bottom: 20%;
     }
     .main-home-header-pc{
-        height: 600px; 
-        width: 800px;
+        width: 90%;
+        height: 40%;
+        margin-bottom: 20%;
+    }
+    .step-button {
+        width: 42%;
+        display: inline-block;
+        height: 8%;
     }
     .option-button {
         width: 80%;

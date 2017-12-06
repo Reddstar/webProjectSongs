@@ -8,12 +8,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {StreamingMedia} from '@ionic-native/streaming-media';
 import { OneplayerPage } from '../pages/oneplayer/oneplayer';
+import { GametypePage } from '../pages/gametype/gametype';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    OneplayerPage
+    OneplayerPage,
+    GametypePage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { OneplayerPage } from '../pages/oneplayer/oneplayer';
   entryComponents: [
     MyApp,
     HomePage,
-    OneplayerPage
+    OneplayerPage,
+    GametypePage
   ],
   providers: [
     StatusBar,

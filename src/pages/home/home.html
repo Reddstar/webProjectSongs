@@ -1,12 +1,8 @@
 <ion-content class="centralized" padding>
-    <img src="assets/imgs/bg.jpg" class="main-home-header">
-    <div class="buttons-row">
-        <button ion-button color="light" class="step-button" round (click) = "goToOnePlayer()" ><p class = "xilosa-font">Um Jogador</p></button>
-        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">Até o Fim</p></button>
-    </div>
-    <div class="buttons-row">
-        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">1 contra 1</p></button>
-        <button ion-button color="light" class="step-button" round><p class = "xilosa-font">2 contra 2</p></button>
-    </div>
+    <img src="assets/imgs/bg.jpg" showWhen = "android, ios, windows" class="main-home-header">
+    <img src="assets/imgs/bg.jpg" hideWhen = "android, ios, windows" class="main-home-header-pc">
+    <button ion-button color="light" class="option-button" round (click) = "goToPlay()" ><p class = "xilosa-font">Jogar</p></button>
+    <button ion-button color="light" class="option-button" round><p class = "xilosa-font">Configurações</p></button>
+    <button ion-button color="light" class="option-button" round><p class = "xilosa-font">Sobre</p></button>
 </ion-content>
   

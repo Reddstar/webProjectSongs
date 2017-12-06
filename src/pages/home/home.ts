@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {OneplayerPage} from '../oneplayer/oneplayer';
+import { GametypePage } from '../gametype/gametype';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +13,8 @@ export class HomePage {
 
   }
 
-  goToOnePlayer(){
-    this.navCtrl.push(OneplayerPage);
+  goToPlay(){
+    this.navCtrl.push(GametypePage);
   }
 
 }
