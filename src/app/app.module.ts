@@ -9,13 +9,15 @@ import { HomePage } from '../pages/home/home';
 import {StreamingMedia} from '@ionic-native/streaming-media';
 import { OneplayerPage } from '../pages/oneplayer/oneplayer';
 import { GametypePage } from '../pages/gametype/gametype';
+import { PlayPage } from '../pages/play/play';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     OneplayerPage,
-    GametypePage
+    GametypePage,
+    PlayPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { GametypePage } from '../pages/gametype/gametype';
     MyApp,
     HomePage,
     OneplayerPage,
-    GametypePage
+    GametypePage,
+    PlayPage
   ],
   providers: [
     StatusBar,

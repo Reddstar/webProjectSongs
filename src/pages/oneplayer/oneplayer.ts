@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
+import { PlayPage } from '../play/play';
 
 @IonicPage()
 @Component({
@@ -22,17 +23,7 @@ export class OneplayerPage {
   }
 
   goForward(){
-    let alert = this.alertCtrl.create({
-      title: 'Desculpe =(',
-      message: 'Tela ainda não implementada',
-      buttons:[{
-        text: 'Certo',
-        handler: () => {
-          console.log("Confirmed");
-        }
-      }]
-    });
-    alert.present();
+    this.navCtrl.push(PlayPage)
   }
 
   showDescription(selectedTitle, description){
