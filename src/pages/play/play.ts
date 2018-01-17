@@ -29,7 +29,7 @@ export class PlayPage {
   async playMusic(){
     try {
       this.videoOptions = {
-        volume: 0.7
+        volume: 1.0
       }
       this.url = "assets/sounds/asa-branca-facil.mp3"
       this.videoPlayer.play(this.url, this.videoOptions);
