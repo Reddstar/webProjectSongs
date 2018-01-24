@@ -1,7 +1,7 @@
 <ion-content class="centralized" padding>
-    <button ion-button color="light" class="minimized" round (click) = "playMusic()"><p class = "xilosa-font">Play</p></button>
-    <button ion-button color="light" class="option-button" round (click) = "choose(1)"><p class = "xilosa-font">Opção 1</p></button>
-    <button ion-button color="light" class="option-button" round (click) = "choose(2)"><p class = "xilosa-font">Opção 2</p></button>
-    <button ion-button color="light" class="option-button" round (click) = "choose(3)"><p class = "xilosa-font">Opção 3</p></button>
-    <button ion-button color="light" class="option-button" round (click) = "choose(4)"><p class = "xilosa-font">Opção 4</p></button>
+    <img [src]="imgUrl" class="minimized" (click) = "playMusic()">
+    <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(1)">{{opt1}}</button>
+    <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(2)">{{opt2}}</button>
+    <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(3)">{{opt3}}</button>
+    <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(4)">{{opt4}}</button>
 </ion-content>

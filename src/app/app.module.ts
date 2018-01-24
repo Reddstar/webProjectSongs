@@ -3,7 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import {VideoPlayer} from '@ionic-native/video-player'
+import {VideoPlayer} from '@ionic-native/video-player';
+import {NativeAudio} from "@ionic-native/native-audio";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -11,6 +12,7 @@ import {StreamingMedia} from '@ionic-native/streaming-media';
 import { OneplayerPage } from '../pages/oneplayer/oneplayer';
 import { GametypePage } from '../pages/gametype/gametype';
 import { PlayPage } from '../pages/play/play';
+import { Infrastructure } from './infrastructure';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { PlayPage } from '../pages/play/play';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StreamingMedia,
-    VideoPlayer
+    VideoPlayer,
+    NativeAudio,
+    Infrastructure
   ]
 })
 export class AppModule {}
