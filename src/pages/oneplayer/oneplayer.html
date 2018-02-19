@@ -28,17 +28,17 @@
                 <ion-list radio-group>
                     <ion-item>
                         <ion-label class="xilosa-font">Fácil</ion-label>
-                        <ion-radio checked="true" value="easy"></ion-radio>
+                        <ion-radio checked="true" value="easy" (ionSelect)="setDifficult(1)"></ion-radio>
                     </ion-item>
                                 
                     <ion-item>
                         <ion-label class="xilosa-font">Médio</ion-label>
-                        <ion-radio value="medium"></ion-radio>
+                        <ion-radio value="medium" (ionSelect)="setDifficult(2)"></ion-radio>
                     </ion-item>
                                 
                     <ion-item>
                         <ion-label class="xilosa-font">Difícil</ion-label>
-                        <ion-radio value="hard"></ion-radio>
+                        <ion-radio value="hard" (ionSelect)="setDifficult(3)"></ion-radio>
                     </ion-item>
                 </ion-list>
             </ion-card>

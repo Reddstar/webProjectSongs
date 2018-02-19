@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import { PlayPage } from '../play/play';
+import { Infrastructure } from '../../app/infrastructure';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,9 @@ import { PlayPage } from '../play/play';
 })
 export class OneplayerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  difficult: number;
+
+  constructor(public infrastructure: Infrastructure, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -23,6 +26,7 @@ export class OneplayerPage {
   }
 
   goForward(){
+    this.infrastructure.changeDifficult(this.difficult);
     this.navCtrl.push(PlayPage)
   }
 
@@ -53,5 +57,10 @@ export class OneplayerPage {
     });
     rules.present();
   }
+
+  setDifficult(n: number){
+    this.difficult = n;
+  }
+
 
 }
