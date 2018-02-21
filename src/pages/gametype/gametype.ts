@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {OneplayerPage} from '../oneplayer/oneplayer';
+import { Infrastructure } from '../../app/infrastructure';
 
 /**
  * Generated class for the GametypePage page.
@@ -24,6 +25,12 @@ export class GametypePage {
   }
 
   goToOnePlayer(){
+    Infrastructure.mode = 0;
+    this.navCtrl.push(OneplayerPage);
+  }
+
+  goToTillEnd(){
+    Infrastructure.mode = 1;
     this.navCtrl.push(OneplayerPage);
   }
 

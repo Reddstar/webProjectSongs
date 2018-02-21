@@ -14,6 +14,8 @@ import { PlayPage } from '../pages/play/play';
 import { Infrastructure } from './infrastructure';
 import { ResultPage } from '../pages/result/result';
 import { MusicSetPage } from '../pages/music-set/music-set';
+import { PlayTillEndPage } from '../pages/play-till-end/play-till-end';
+import { AboutPage } from '../pages/about/about';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MusicSetPage } from '../pages/music-set/music-set';
     GametypePage,
     PlayPage,
     ResultPage,
-    MusicSetPage
+    MusicSetPage,
+    PlayTillEndPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { MusicSetPage } from '../pages/music-set/music-set';
     GametypePage,
     PlayPage,
     ResultPage,
-    MusicSetPage
+    MusicSetPage,
+    PlayTillEndPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

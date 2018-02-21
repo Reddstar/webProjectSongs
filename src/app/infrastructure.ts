@@ -4,6 +4,9 @@ export class Infrastructure {
     static score: number = 0;
     static times: number = 0;
     static indexes: number[] = [-1, -1, -1, -1];
+    static mode: number = 0;
+    static lives: number = 3;
+    static ldefined: boolean;
 
     decoySongs: string[];
     songs: string[];
@@ -80,12 +83,19 @@ export class Infrastructure {
 
     changeDifficult() {
         if (Infrastructure.difficult == 1){
-            this.songsUrl = this.songsEasy;
+            if (!Infrastructure.ldefined){
+                Infrastructure.lives = 3;
+            }
             console.log("Changed difficult to 'easy'");
         } else if (Infrastructure.difficult == 2) {
-            this.songsUrl = this.songsMedium;
+            if (!Infrastructure.ldefined){
+                Infrastructure.lives = 2;
+            }
             console.log("Changed difficult to 'medium'");
         } else if (Infrastructure.difficult == 3) {
+            if (!Infrastructure.ldefined){
+                Infrastructure.lives = 1;
+            }
             this.songsUrl = this.songsHard;
             console.log("Changed difficult to 'easy'");
         }

@@ -1,0 +1,8 @@
+<ion-content class="centralized" padding>
+  <img [src]="livesUrl" class="fw">
+  <img [src]="imgUrl" class="minimized" (click) = "playMusic()">
+  <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(1)">{{opt1}}</button>
+  <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(2)">{{opt2}}</button>
+  <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(3)">{{opt3}}</button>
+  <button ion-button color="light" class="option-button xilosa-font" round (click) = "choose(4)">{{opt4}}</button>
+</ion-content>

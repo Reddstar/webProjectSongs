@@ -1,0 +1,27 @@
+page-play-till-end {
+    .main-home-header{
+        align-content: center;
+        img {
+            display: inline;
+        }
+        width: 90%;
+        height: 10%;
+        margin-bottom: 20%;
+    }
+    .minimized {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .option-button {
+        width: 80%;
+        height: 14%;
+        background-image: url("../assets/imgs/texture.png");
+    }
+    .xilosa-font {
+        font-family: "XILOSA";
+        font-size: 150%;
+    }
+    .centralized {
+        text-align: center;
+    }
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Infrastructure } from '../../app/infrastructure';
 import shuffle from '../../app/shuffle';
+import { GametypePage } from '../gametype/gametype';
 
 /**
  * Generated class for the ResultPage page.
@@ -30,6 +31,13 @@ export class ResultPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultPage');
+  }
+
+  goBackMain(){
+    this.navCtrl.push(GametypePage).then(() => {
+      const index = this.navCtrl.getActive().index;
+      this.navCtrl.remove(index - 1, 1);
+    });
   }
 
 }
