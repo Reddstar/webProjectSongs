@@ -12,6 +12,8 @@ import { OneplayerPage } from '../pages/oneplayer/oneplayer';
 import { GametypePage } from '../pages/gametype/gametype';
 import { PlayPage } from '../pages/play/play';
 import { Infrastructure } from './infrastructure';
+import { ResultPage } from '../pages/result/result';
+import { MusicSetPage } from '../pages/music-set/music-set';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { Infrastructure } from './infrastructure';
     HomePage,
     OneplayerPage,
     GametypePage,
-    PlayPage
+    PlayPage,
+    ResultPage,
+    MusicSetPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { Infrastructure } from './infrastructure';
     HomePage,
     OneplayerPage,
     GametypePage,
-    PlayPage
+    PlayPage,
+    ResultPage,
+    MusicSetPage
   ],
   providers: [
     StatusBar,

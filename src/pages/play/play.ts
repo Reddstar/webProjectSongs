@@ -7,6 +7,7 @@ import {Infrastructure} from '../../app/infrastructure';
 
 import shuffle from '../../app/shuffle'
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { ResultPage } from '../result/result';
 
 
 /**
@@ -22,30 +23,65 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
   templateUrl: 'play.html',
 })
 export class PlayPage {
-
+  
+  difficult: number;
   url: string;
   imgUrl: string;
   index: number;
+  decoy: string[];
   randomizedIndexes : number[];
+  personalSongs: string[];
 
   public opt1 : string = "opt1";
   public opt2 : string = "opt2";
   public opt3 : string = "opt3";
   public opt4 : string = "opt4";
 
-  constructor(public alertCtrl: AlertController, private infrastructure:  Infrastructure, public loading: LoadingController, private platform: Platform, private nativeAudio: NativeAudio, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public infrastructure: Infrastructure, public alertCtrl: AlertController, public loading: LoadingController, private platform: Platform, private nativeAudio: NativeAudio, public navCtrl: NavController, public navParams: NavParams) {
+
+    platform.registerBackButtonAction(() => {
+      this.stopMusic();
+      this.navCtrl.pop();
+    }, 1);
+
+    infrastructure.changeDifficult();
+    console.log(this.difficult);
+
+    this.decoy = shuffle(infrastructure.decoySongs);
     
     this.imgUrl = "assets/imgs/play-unclicked.png";
-    
+
     this.index = this.randomInt(0,3);
+    while (Infrastructure.indexes.indexOf(this.index) != -1){
+      this.index = this.randomInt(0,3);
+    }
+
+    Infrastructure.indexes[Infrastructure.indexes.indexOf(-1)] = this.index;
+
     this.randomizedIndexes = [0,1,2,3];
     this.randomizedIndexes = shuffle( this.randomizedIndexes );
     console.log (this.randomizedIndexes);
 
-    this.opt1 = this.infrastructure.songsOptions[this.randomizedIndexes[0]];
-    this.opt2 = this.infrastructure.songsOptions[this.randomizedIndexes[1]];
-    this.opt3 = this.infrastructure.songsOptions[this.randomizedIndexes[2]];
-    this.opt4 = this.infrastructure.songsOptions[this.randomizedIndexes[3]];
+    if (this.randomizedIndexes[0] == this.index){
+      this.opt1 = this.infrastructure.songsOptions[this.randomizedIndexes[0]];
+    } else {
+      this.opt1 = this.decoy[0];
+    }
+    if (this.randomizedIndexes[1] == this.index){
+      this.opt2 = this.infrastructure.songsOptions[this.randomizedIndexes[1]];
+    } else {
+      this.opt2 = this.decoy[1];
+    }
+    if (this.randomizedIndexes[2] == this.index){
+      this.opt3 = this.infrastructure.songsOptions[this.randomizedIndexes[2]];
+    } else {
+      this.opt3 = this.decoy[2];
+    }
+    if (this.randomizedIndexes[3] == this.index){
+      this.opt4 = this.infrastructure.songsOptions[this.randomizedIndexes[3]];
+    } else {
+      this.opt4 = this.decoy[3];
+    }
   }
 
   ionViewDidLoad() {
@@ -72,10 +108,6 @@ export class PlayPage {
     this.nativeAudio.stop(this.infrastructure.songs[this.index]);
   }
 
-  backButtonAction(){
-    this.stopMusic();
-  }
-
   showRightResult(){
     let rules = this.alertCtrl.create({
       title: 'Resultado',
@@ -83,7 +115,18 @@ export class PlayPage {
       buttons:[{
         text: 'Certo',
         handler: () => {
-          console.log("Confirmed");
+          Infrastructure.score = Infrastructure.score + 1;
+          if (Infrastructure.times < 4){
+            this.navCtrl.push(PlayPage).then(() => {
+              const index = this.navCtrl.getActive().index;
+              this.navCtrl.remove(index - 1, 1);
+            });
+          } else {
+            this.navCtrl.push(ResultPage).then(() => {
+              const index = this.navCtrl.getActive().index;
+              this.navCtrl.remove(index - 1, 1);
+            });
+          }
         }
       }]
     });
@@ -97,7 +140,17 @@ export class PlayPage {
       buttons:[{
         text: 'Certo',
         handler: () => {
-          console.log("Confirmed");
+          if (Infrastructure.times < 4){
+            this.navCtrl.push(PlayPage).then(() => {
+              const index = this.navCtrl.getActive().index;
+              this.navCtrl.remove(index - 1, 1);
+            });
+          } else {
+            this.navCtrl.push(ResultPage).then(() => {
+              const index = this.navCtrl.getActive().index;
+              this.navCtrl.remove(index - 1, 1);
+            });
+          }
         }
       }]
     });
@@ -108,8 +161,13 @@ export class PlayPage {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  setDifficult(n){
+    this.difficult = n;
+  }
+
   choose(n){
     this.stopMusic();
+    Infrastructure.times += 1;
     if (n == 1){
       if (this.randomizedIndexes[0] == this.index){
         this.showRightResult();

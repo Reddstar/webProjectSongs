@@ -1,14 +1,34 @@
 export class Infrastructure {
 
+    static difficult: number;
+    static score: number = 0;
+    static times: number = 0;
+    static indexes: number[] = [-1, -1, -1, -1];
+
+    decoySongs: string[];
     songs: string[];
     songsUrl: string[];
     songsOptions: string[];
+
+    tips: string[];
 
     songsEasy: string[];
     songsMedium: string[];
     songsHard: string[];
 
     constructor(){
+
+        this.decoySongs = [
+            'Xote das meninas',
+            'Respeita Januário',
+            'Paraíba',
+            'Sertão Sofredor',
+            'O cheiro da Carolina',
+            'Moreninha, Tentação',
+            'A vida do Viajante',
+            'São João do Carneirinho'
+        ]
+
         this.songs = [
             'asa-branca',
             'eu-so-quero-um-xodo',
@@ -45,16 +65,29 @@ export class Infrastructure {
             'Qui nem jiló',
             'Numa sala de Reboco'
         ]
+
+        this.tips = [
+            'Os historiadores relatam que o Baião antes era conhecido como baiano.',
+            'Em 1940, o Baião se popularizou e através de artistas como Luiz Gonzaga e Humberto Teixeira o Doutor do Baião.',
+            'No início toda festa com música e dança era conhecida como baião.'
+        ]
         
     }
 
-    changeDifficult(n) {
-        if (n == 1){
+    setDifficult(n){
+        Infrastructure.difficult = n;
+    }
+
+    changeDifficult() {
+        if (Infrastructure.difficult == 1){
             this.songsUrl = this.songsEasy;
-        } else if (n == 2) {
+            console.log("Changed difficult to 'easy'");
+        } else if (Infrastructure.difficult == 2) {
             this.songsUrl = this.songsMedium;
-        } else if (n == 3) {
+            console.log("Changed difficult to 'medium'");
+        } else if (Infrastructure.difficult == 3) {
             this.songsUrl = this.songsHard;
+            console.log("Changed difficult to 'easy'");
         }
     }
 }

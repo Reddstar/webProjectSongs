@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import { PlayPage } from '../play/play';
 import { Infrastructure } from '../../app/infrastructure';
+import { MusicSetPage } from '../music-set/music-set';
 
 @IonicPage()
 @Component({
@@ -26,8 +27,7 @@ export class OneplayerPage {
   }
 
   goForward(){
-    this.infrastructure.changeDifficult(this.difficult);
-    this.navCtrl.push(PlayPage)
+    this.navCtrl.push(MusicSetPage);
   }
 
   showDescription(selectedTitle, description){
@@ -47,7 +47,7 @@ export class OneplayerPage {
   showRules(){
     let rules = this.alertCtrl.create({
       title: 'Sobre o modo: Um Jogador',
-      message: '- Responda qual é a musica antes do tempo acabar<br>- A cada nível você tem menos tempo',
+      message: '- Tente adivinhar uma série de Músicas e veja quantos pontos consegue',
       buttons:[{
         text: 'Certo',
         handler: () => {
@@ -60,6 +60,7 @@ export class OneplayerPage {
 
   setDifficult(n: number){
     this.difficult = n;
+    Infrastructure.difficult = n;
   }
 
 
